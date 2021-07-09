@@ -3,6 +3,15 @@
 require __DIR__ . "/classes/Products.php";
 require __DIR__ . "/classes/User.php";
 
+$products = [
+    $product1 = new Product("GameBoy color", 80.00),
+    $product2 = new Product("Nintendo Switch", 150.00)
+ ];
+
+
+ $user1 = new User("Elia", "Stellati", "eliastellatibvb@gmail.com", 0);
+ var_dump($user1,  $pruduct1, $product2)
+
 ?>
 
 <!DOCTYPE html>
@@ -19,17 +28,18 @@ require __DIR__ . "/classes/User.php";
    <h1>Elia's Online Shop</h1>
 </header>
 <main>
-   <?php
-   
-   $product1 = new Product("GameBoy color", 80.00);
-   $product2 = new Product("Nintendo Switch", 150.00);
-
-   $user1 = new User("Elia", "Stellati", "eliastellatibvb@gmail.com");
-   
-   ?>  
-
    <h2>Available Products</h2>
-
+   <div class="products">
+   <?php foreach($products as $product) { ?>
+     <div class="card">
+       <h5><?=$product->name?></h5>
+       <h6>
+         <?= $product->price?>
+       </h6>
+     </div>
+   <?php } ?>
+   
+   </div>
    
 </main>    
 </body>
